@@ -1,11 +1,14 @@
 package com.johnathanmsmith.mvc.web.config;
 
 import com.johnathanmsmith.mvc.web.model.Car;
+import com.johnathanmsmith.mvc.web.model.CarList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -15,6 +18,7 @@ import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
+import java.util.List;
 import java.util.Properties;
 
 @Configuration
@@ -58,7 +62,9 @@ public class WebMVCConfig extends WebMvcConfigurerAdapter{
     }
 
     @Bean
-    public Car carList(){
-        return new Car();
+    public CarList ct(){
+        return new CarList();
     }
+
+
 }

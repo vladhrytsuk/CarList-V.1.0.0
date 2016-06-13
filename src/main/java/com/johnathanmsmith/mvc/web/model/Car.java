@@ -1,31 +1,71 @@
 package com.johnathanmsmith.mvc.web.model;
 
-import java.util.ArrayList;
+import java.util.UUID;
 
 public class Car {
-    private ArrayList<String> ListTable = new ArrayList<String>();
 
-    public ArrayList<String> getListTable() {
-        return ListTable;
+    private UUID id;
+    private String mark;
+    private String color;
+    private int vin;
+    private int miles;
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", mark='" + mark + '\'' +
+                ", color='" + color + '\'' +
+                ", vin=" + vin +
+                ", miles=" + miles +
+                '}';
     }
 
-    public void addNewCar (String car) {
-        this.ListTable.add(car);
-        String buf = "";
-        for (int i = 0; i < ListTable.size(); i++) {
-            buf = buf + ListTable.get(i) + " ";
-        }
-        System.out.println("CONSOLE - ADD Car : " + buf);
+    public UUID getId() {
+        return id;
     }
 
-    public void removeCar (int index) {
-        this.ListTable.remove(index);
-        System.out.println("CONSOLE - DELETE Car : " + index);
+    public void setId(UUID id) {
+        this.id = id;
     }
 
-    public void editCar (int index, String car) {
-        System.out.print("CONSOLE - EDIT Car : " + "по индексу " + index + " с записью " + ListTable.get(index));
-        this.ListTable.set(index, car);
-        System.out.println("на : " + ListTable.get(index));
+    public String getMark() {
+        return mark;
+    }
+
+    public void setMark(String mark) {
+        this.mark = mark;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getVin() {
+        return vin;
+    }
+
+    public void setVin(int vin) {
+        this.vin = vin;
+    }
+
+    public int getMiles() {
+        return miles;
+    }
+
+    public void setMiles(int miles) {
+        this.miles = miles;
+    }
+
+    public Car(UUID id, String mark, String color, int vin, int miles) {
+        this.id = id;
+        this.mark = mark;
+        this.color = color;
+        this.vin = vin;
+        this.miles = miles;
     }
 }
