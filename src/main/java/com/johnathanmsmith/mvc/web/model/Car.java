@@ -10,15 +10,15 @@ public class Car {
     private int vin;
     private int miles;
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "id=" + id +
-                ", mark='" + mark + '\'' +
-                ", color='" + color + '\'' +
-                ", vin=" + vin +
-                ", miles=" + miles +
-                '}';
+    public Car() {
+    }
+
+    public Car(UUID id, String mark, String color, int vin, int miles) {
+        this.id = id;
+        this.mark = mark;
+        this.color = color;
+        this.vin = vin;
+        this.miles = miles;
     }
 
     public UUID getId() {
@@ -61,11 +61,15 @@ public class Car {
         this.miles = miles;
     }
 
-    public Car(UUID id, String mark, String color, int vin, int miles) {
-        this.id = id;
-        this.mark = mark;
-        this.color = color;
-        this.vin = vin;
-        this.miles = miles;
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", mark='" + mark + '\'' +
+                ", color='" + color + '\'' +
+                ", vin=" + vin +
+                ", miles=" + miles +
+                '}';
     }
+
 }

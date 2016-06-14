@@ -1,19 +1,10 @@
-package com.johnathanmsmith.mvc.web;
+package com.johnathanmsmith.mvc.web.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-/**
- * Created by Greed on 13.06.2016.
- */
 public class CarDto {
 
-   // @JsonProperty("mark")
      private String mark;
-  //@JsonProperty("color")
      private String color;
-  //  @JsonProperty("vin")
      private int vin;
-  // @JsonProperty("miles")
      private int miles;
 
     public String getMark() {

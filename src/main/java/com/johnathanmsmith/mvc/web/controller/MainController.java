@@ -1,13 +1,12 @@
 package com.johnathanmsmith.mvc.web.controller;
 
-import com.johnathanmsmith.mvc.web.CarDto;
+import com.johnathanmsmith.mvc.web.model.CarDto;
 import com.johnathanmsmith.mvc.web.model.Car;
+import com.johnathanmsmith.mvc.web.model.CarDtoFactory;
 import com.johnathanmsmith.mvc.web.model.CarList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -115,13 +114,14 @@ public class MainController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/list/addTest", method = RequestMethod.POST, consumes = "application/json")
-    public ResponseEntity<Car> addCar(@RequestBody Car car){
+    @RequestMapping(value = "/list/addTest", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+    public Car addCar(@RequestBody CarDto carDto){
         ModelAndView add = new ModelAndView("list");
-        ct.addCar(car);
+        CarDtoFactory carDtoFactory = new CarDtoFactory();
+        ct.addCar(carDtoFactory.SerializerCar(carDto));
         add.addObject("ct", ct);
         logger.debug("ADD controller");
-        return new ResponseEntity<Car>(car, HttpStatus.OK);
+        return carDtoFactory.SerializerCar(carDto);
     }
 
 }

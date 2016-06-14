@@ -29,4 +29,5 @@ public class CarList {
         this.carListTable.set(index, car);
         System.out.println("на : " + carListTable.get(index));
     }
+
 }
