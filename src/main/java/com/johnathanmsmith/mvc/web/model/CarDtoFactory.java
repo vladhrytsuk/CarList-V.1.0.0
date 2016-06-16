@@ -1,8 +1,14 @@
 package com.johnathanmsmith.mvc.web.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 import java.util.UUID;
 
 public class CarDtoFactory {
+
+    @Autowired
+    CarList ct;
 
     public CarDtoFactory() {
 

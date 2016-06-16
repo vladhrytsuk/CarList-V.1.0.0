@@ -1,5 +1,7 @@
-package com.johnathanmsmith.mvc.web.controller;
+package com.johnathanmsmith.mvc.old;
 
+import com.johnathanmsmith.mvc.web.controller.CarRestURIConstants;
+import com.johnathanmsmith.mvc.web.controller.MainController;
 import com.johnathanmsmith.mvc.web.model.Car;
 import com.johnathanmsmith.mvc.web.model.CarList;
 import org.slf4j.Logger;
@@ -59,7 +61,7 @@ public class OldController {
 //        logger.debug("EDIT controller");
 //        return edit;
 //    }
-
+/*
     @RequestMapping(value = CarRestURIConstants.DELETE_CAR_OLD, method = RequestMethod.POST)
     public String delete(@RequestParam(value = "deleteCar") UUID Id) {
         List<Car> car = ct.getCarListTable();
@@ -69,7 +71,7 @@ public class OldController {
             }
         }
         return "redirect:/oldlist";
-    }
+    }*/
 
     @RequestMapping(value = CarRestURIConstants.EDIT_CAR_OLD, method = RequestMethod.POST)
     public ModelAndView edit(@RequestParam(value = "editCar") UUID carId ){

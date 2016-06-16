@@ -2,9 +2,10 @@ package com.johnathanmsmith.mvc.web.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class CarList {
-    private List<Car> carListTable =new ArrayList<Car>();
+    private List<Car> carListTable = new ArrayList<Car>();
 
     public List<Car> getCarListTable() {
         return carListTable;
@@ -14,9 +15,15 @@ public class CarList {
         this.carListTable = carListTable;
     }
 
-    public void deleteCar (int index){
-        carListTable.remove(index);
-        System.out.println("CONSOLE - DELETE Car : " + index);
+    public Boolean deleteCar (UUID Id){
+        List<Car> list = new ArrayList();
+        for(Car item: getCarListTable()) {
+          if(!item.getId().equals(Id))
+              list.add(item);
+        }
+        carListTable = list;
+        System.out.println("CONSOLE - DELETE Car : ");
+        return true;
     }
 
     public void addCar (Car car){

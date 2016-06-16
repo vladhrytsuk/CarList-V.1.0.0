@@ -12,6 +12,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 public class MainController {
     @Autowired
@@ -25,22 +27,37 @@ public class MainController {
         return "index";
     }
 
+    @ResponseBody
     @RequestMapping(value = CarRestURIConstants.LIST, method = RequestMethod.GET)
-    public @ResponseBody ModelAndView List(ModelMap model){
+    public ModelAndView List(ModelMap model){
         model.put("ct",ct);
         logger.debug("LIST controller");
         return new ModelAndView("list");
     }
 
     @ResponseBody
+    @RequestMapping(value = CarRestURIConstants.SHOWLIST, method = RequestMethod.GET, consumes = "application/json", produces = "application/json")
+    public List<Car> Show(){
+        logger.debug("LIST controller");
+        return ct.getCarListTable();
+    }
+
+    @ResponseBody
     @RequestMapping(value = CarRestURIConstants.ADD_CAR, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public Car addCar(@RequestBody CarDto carDto){
+    public Car add(@RequestBody CarDto carDto){
         ModelAndView add = new ModelAndView("list");
         CarDtoFactory carDtoFactory = new CarDtoFactory();
         ct.addCar(carDtoFactory.SerializerCar(carDto));
         add.addObject("ct", ct);
         logger.debug("ADD controller");
         return carDtoFactory.SerializerCar(carDto);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = CarRestURIConstants.DELETE_CAR, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+    public Boolean delete(@RequestBody Car car){
+        logger.debug("Delete controller");
+        return ct.deleteCar(car.getId());
     }
 
 }

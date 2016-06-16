@@ -1,8 +1,8 @@
 function validateAdd(){
-        var mark = document.forms['add']['mark'].value;
-        var color = document.forms['add']['color'].value;
-        var vin = document.forms['add']['vin'].value;
-        var miles = document.forms['add']['miles'].value;
+        var mark = document.getElementById('mark').value;
+        var color = document.getElementById('color').value;
+        var vin = document.getElementById('vin').value;
+        var miles = document.getElementById('miles').value;
         var alpha = new RegExp('[0-9A-z]');
         var digit = new RegExp('[0-9]');
 
@@ -42,4 +42,5 @@ function validateAdd(){
             document.getElementById('miles_f').innerHTML='*данное введены не верно. Только цифры(0-9).';
             return false;
         }
+    return true;
     }
