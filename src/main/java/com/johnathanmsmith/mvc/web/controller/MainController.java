@@ -48,15 +48,11 @@ public class MainController {
 
     @ResponseBody
     @RequestMapping(value = CarRestURIConstants.ADD_CAR, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public Car add(@Valid @RequestBody CarDto carDto, BindingResult result)
+    public Car add(@Valid @RequestBody CarDto carDto)
     {
         CarDtoFactory carDtoFactory = new CarDtoFactory();
-        if (!result.hasErrors()) {
-            logger.debug("ADD controller");
-            return carDtoFactory.SerializerCar(carDto, ct);
-        }
-        logger.debug("ERROR ADD controller");
-        return carDtoFactory.Error();
+        logger.debug("ADD controller");
+        return carDtoFactory.SerializerCar(carDto, ct);
     }
 
 /*    @ResponseBody

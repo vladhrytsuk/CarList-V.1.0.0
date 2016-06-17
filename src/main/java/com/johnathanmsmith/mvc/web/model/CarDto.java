@@ -1,6 +1,7 @@
 package com.johnathanmsmith.mvc.web.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -10,17 +11,16 @@ public class CarDto {
 
     @NotEmpty
     @Size(min=2, max=30)
-     private String mark;
+    private String mark;
+
     @NotEmpty
-     private String color;
+    private String color;
 
     @Min(1)
-    @Size(min=1, max=30)
-     private int vin;
+    private int vin;
 
-    @Min(1)
-    @Size(min=1, max=9999999)
-     private int miles;
+    @Range(min=1, max=9999)
+    private int miles;
 
     public String getMark() {
         return mark;
@@ -52,16 +52,6 @@ public class CarDto {
 
     public void setMiles(int miles) {
         this.miles = miles;
-    }
-
-    @Override
-    public String toString() {
-        return "CarDto{" +
-                "mark='" + mark + '\'' +
-                ", color='" + color + '\'' +
-                ", vin=" + vin +
-                ", miles=" + miles +
-                '}';
     }
 }
 

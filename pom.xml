@@ -144,13 +144,6 @@
             <version>2.1.7</version>
         </dependency>
 
-        <!-- JSR 303 validation -->
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.0.0.GA</version>
-        </dependency>
-
         <!-- **********************************************************************
             ** HIBERNATE DEPENDENCIES ** ********************************************************************** -->
         <dependency>

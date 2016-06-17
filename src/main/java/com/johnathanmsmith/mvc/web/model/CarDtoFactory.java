@@ -29,9 +29,4 @@ public class CarDtoFactory {
         return car;
     }
 
-    public Car Error () {
-        Car car = new Car();
-        return car;
-    }
-
 }

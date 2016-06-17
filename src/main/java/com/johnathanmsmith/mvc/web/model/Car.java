@@ -10,11 +10,11 @@ import java.util.UUID;
 public class Car {
 
     private UUID id;
-    @NotEmpty
+    @NotNull
     @Size(min=2, max=30)
     private String mark;
 
-    @NotEmpty
+    @NotNull
     private String color;
 
     @Min(1)

@@ -45,8 +45,13 @@ function addToTable()
             cararray.push(data);
             AddRow('CarDataTable', data);
             clearAddInput();
+        },
+            error: function (data)
+            {
+                alert('ОШИБКА!');
+            }
         }
-    });
+    );
 }
 
 /*Запрос на редактирование записи*/
