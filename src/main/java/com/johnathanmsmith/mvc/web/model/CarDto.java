@@ -1,10 +1,25 @@
 package com.johnathanmsmith.mvc.web.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class CarDto {
 
+    @NotEmpty
+    @Size(min=2, max=30)
      private String mark;
+    @NotEmpty
      private String color;
+
+    @Min(1)
+    @Size(min=1, max=30)
      private int vin;
+
+    @Min(1)
+    @Size(min=1, max=9999999)
      private int miles;
 
     public String getMark() {

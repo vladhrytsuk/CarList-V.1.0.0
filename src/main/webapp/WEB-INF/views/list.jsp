@@ -28,7 +28,7 @@
             </tr>
         </table> <br><br>
 
- <div class = "center" id="addList" >
+ <div class = "center" id="addList" class =  >
     <table align="center" id="CarDataTable">
         <caption>Project CarList</caption>
         <tr>
@@ -44,30 +44,38 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="/resources/js/validate.js"></script>
 <script type="text/javascript" src="/resources/js/table.js"></script>
-<%--<script type="text/javascript" src="/resources/js/add.js"></script>
-<script type="text/javascript" src="/resources/js/delete.js"></script>
-<script type="text/javascript" src="/resources/js/edit.js"></script>--%>
+<script type="text/javascript" src="/resources/js/validate.js"></script>
 <script type="text/javascript">
-    $(window).load(function () {
+/*    $(window).load(function ()
+    {
         $.ajax({
             url: '/showlist',
             type: 'GET',
             contentType: 'application/json',
-            success: function(data) {
-                for (var i = 0; i < data.length; ++i) {
+            success: function(data)
+            {
+                for (var i = 0; i < data.length; ++i)
+                {
                     AddRow('CarDataTable', data[i]);
                 }
             }
         });
-    });
+    });*/
 
-    $("#addrow").click(function () {
-        if (validateAdd() == true) {
+    $("#addrow").click(function ()
+    {
+        if (validateAdd() == true)
+        {
             addToTable();
         }
      });
+
+    window.onload = function()
+    {
+        show();
+    };
+
 </script>
 
 </body>
