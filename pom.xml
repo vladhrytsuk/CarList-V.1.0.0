@@ -144,8 +144,7 @@
             <version>2.1.7</version>
         </dependency>
 
-        <!-- **********************************************************************
-            ** HIBERNATE DEPENDENCIES ** ********************************************************************** -->
+        <!-- HIBERNATE DEPENDENCIES -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>

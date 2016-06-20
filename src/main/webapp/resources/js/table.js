@@ -13,7 +13,7 @@ function show()
         {
             for (var i = 0; i < data.length; ++i)
             {
-                cararray.push(data[i]);
+                cararray[i] = data[i];
                 AddRow('CarDataTable', data[i]);
             }
         }
@@ -46,9 +46,12 @@ function addToTable()
             AddRow('CarDataTable', data);
             clearAddInput();
         },
-            error: function (data)
-            {
-                alert('ОШИБКА!');
+            error: function (data){
+                alert("Ошибка на сервере:" 
+                    + "\nMark: "+ JSON.parse(data.responseText).errorMsgMark
+                    + "\nColor: "+ JSON.parse(data.responseText).errorMsgColor
+                    + "\nVin: "+ JSON.parse(data.responseText).errorMsgVin
+                    + "\nMiles: "+ JSON.parse(data.responseText).errorMsgMiles);
             }
         }
     );
